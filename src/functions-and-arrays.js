@@ -21,14 +21,11 @@ const findLongestWord = function(words) {
   }
   let longest = " ";
   words.forEach(word => {
-    const items = word.split(" ");
-    items.forEach(item => {
-      if(item.length > longest.length){
-        longest = item
-      }
-    })
-    return longest;
+    if (word.length > longest.length){
+      longest = word;
+    }
   });
+  return longest;
 }
 
 
@@ -45,7 +42,7 @@ const sumNumbers = function(numbers) {
     }
     finalSum += numbers[i];
   }
-  //check every elemnts it zero or not zero;
+  //check every elemnts it zero or not zero and calculate the sum of the all array;
 
   if (numbers.length === 0) {
     return 0;
@@ -71,15 +68,61 @@ function sum() {}
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
-const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+const numberAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+const averageNumbers = function(numberAvg) {
+  var finalSum = 0;
+  var isNegative = false;
+  for (let i = 0; i < numberAvg.length; i++) {
+    finalSum += numberAvg[i];
+    if (numberAvg[i] < 0) {
+      isNegative = true;
+    }
+  }
+  var finalAvg = finalSum / numberAvg.length;
+  //calculate the average of averageAvg, and check numberAvg include any negative?
+
+
+
+  if(numberAvg.length === 0) {
+    return null;
+  } else if (numberAvg.length === 1) {
+    let sum = 0;
+    let avg;
+    for(let i = 0; i < numberAvg.length; i++) {
+      sum += numberAvg[i];
+      avg = sum / numberAvg.length;
+    }
+    return avg;
+  } else if (isNegative) {
+    let sum = 0;
+    let avg;
+    for(let i = 0; i < numberAvg.length; i++) {
+      sum += parseInt(numberAvg[i]);
+      avg = sum / numberAvg.length;
+    }
+    return avg;
+  } else {
+    return finalAvg;
+  }
+}
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+const averageWordLength = function(wordsArr) { 
+  let arrAvg = wordsArr.join('').length / wordsArr.length; // calculate average from array.
+
+  if (wordsArr.length === 0) {
+    return null;
+  } else if (wordsArr.length === 1) {
+    let temAvg = wordsArr.join('').length / wordsArr.length;
+    return temAvg;
+  } else {
+    return arrAvg;
+  }
+}
 
 // Bonus - Iteration #4.1
 function avg() {}
@@ -99,14 +142,37 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+const uniquifyArray = function(wordsUnique) {
+  let unqiueSet = [...new Set(wordsUnique)];
+  let mySet = (new Set(wordsUnique)).size;
+
+  if (wordsUnique.length === 0) {
+    return null;
+  } else if (mySet === wordsUnique.length) {
+    return wordsUnique;
+  } else {
+    return unqiueSet;
+  }
+}
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+const doesWordExist = function(wordsFind, words) {
+  let result = wordsFind.includes(words);
+
+  if (wordsFind.length === 0) {
+    return null;
+  } else if (wordsFind.length === 1) {
+    return true;
+  } else if (result === false) {
+    return false;
+  } else if (result === true) {
+    return true;
+  }
+}
 
 
 
@@ -125,7 +191,20 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+const howManyTimes = function(wordsCount, words) {
+  let count = 0;
+  wordsCount.forEach((v) => (v === words && count++));
+
+  if (wordsCount.length === 0) {
+    return 0;
+  } else if (count === 1) {
+    return 1;
+  } else if (count === 0) {
+    return 0;
+  } else if (count === 5) {
+    return 5;
+  }
+}
 
 
 
